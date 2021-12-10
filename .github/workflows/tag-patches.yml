@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        base-version: [ "2.0" ]
+        base-version: [ "2.20" ]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git tag ${{ matrix.base-version }}.${{ github.run_number }}
+          git tag ${{ matrix.base-version }}.${{ github.run_number+22 }}
       
       - name: Push changes
         run: git push origin --tags
